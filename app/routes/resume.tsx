@@ -18,7 +18,7 @@ const resume = () => {
 
     const [imageUrl, setImageUrl] = useState('');
     const [resumeUrl, setResumeUrl] = useState('');
-    const [feedback, setFeedback] = useState<Feedback | null>('');
+    const [feedback, setFeedback] = useState<Feedback | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,6 +32,8 @@ const resume = () => {
             if(!resume) return;
 
             const data = JSON.parse(resume);
+            console.log("full data object from kv:",data);
+            console.log("Feedback object being set to state:", data.feedback);
 
             const resumeBlob = await fs.read(data.resumePath);
             if(!resumeBlob) return;
@@ -80,7 +82,7 @@ const resume = () => {
                     {feedback ? (
                         <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
                             <Summary feedback={feedback} />
-                            <ATS score={feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []} />
+                            <ATS score={feedback?.ATS?.score || 0} suggestions={feedback?.ATS?.tips || []} />
                             <Details feedback={feedback} />
                         </div>
                     ) : (
