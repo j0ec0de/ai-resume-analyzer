@@ -12,3 +12,19 @@ A modern web application that analyzes resumes using AI to provide ATS score, fe
 * Tailwind CSS
 * Puter.js
 * TypeScript
+
+
+### 🔧 Installation
+1. Clone the repo
+   ```
+   git clone https://github.com/yourusername/ai-resume-analyzer.git
+   cd ai-resume-analyzer
+   ```
+2. Install dependencies
+   ```
+   npm install
+   ```
+3. Start the development server
+   ```
+   npm run dev
+   ```
